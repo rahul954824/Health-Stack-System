@@ -160,9 +160,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = [
-    os.path.join(BASE_DIR,'staticfiles_build','static')
-]
 ### SSLCOMMERZ env variables
 #VARIABLE should be in capital letter.
 STORE_ID = env('STORE_ID')
