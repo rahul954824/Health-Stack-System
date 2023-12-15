@@ -12,9 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 # commands
 # virtualenv/Scripts/activate 
-import os
 from pathlib import Path
-
+import os
 import environ
 # django-environ
 
@@ -34,9 +33,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['192.168.0.100', '127.0.0.1','5749-103-109-53-5.in.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1']
 # ALLOWED_HOSTS = ['mobile view', 'local host','ngrok -- keeps on changing']
 
 # Application definition
@@ -91,7 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'django.core.context_processors.static',
+                #'django.core.context_processors.static',
             ],
         },
     },
@@ -145,22 +144,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Assuming your static files are in a 'static' directory in your project's root.
-]
-STATIC_ROOT = BASE_DIR / "assets"
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),  # Assuming your static files are in a 'static' directory in your project's root.
+# ]
+# STATIC_ROOT = BASE_DIR / "assets"
 MEDIA_URL = '/images/'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # STATIC_URL = 'static/'
 # MEDIA_URL = 'images/'
 # # STATIC_ROOT = os.path.join(BASE_DIR ,'static')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 ### SSLCOMMERZ env variables
 #VARIABLE should be in capital letter.
 STORE_ID = env('STORE_ID')
@@ -177,9 +176,9 @@ SMTP_PASSWORD = env('SMTP_PASSWORD')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_PORT = SMTP_PORT
-EMAIL_HOST_USER = SMTP_USER
-EMAIL_HOST_PASSWORD = SMTP_PASSWORD
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '8936e555f6c534'
+EMAIL_HOST_PASSWORD = '520353005b719f'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
